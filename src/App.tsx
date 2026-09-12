@@ -1,4 +1,4 @@
-import { Route, Routes, Link, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, Link, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { usePreferences } from "./context";
 import Navigation from "./components/Navigation";
@@ -29,6 +29,7 @@ export default function App() {
           <MotionPage key={pathname}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/index.html" element={<Navigate replace to="/" />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />

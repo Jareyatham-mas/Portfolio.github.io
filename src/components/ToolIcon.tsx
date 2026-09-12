@@ -1,4 +1,5 @@
 import { Code2, Database, ListChecks, Bug } from "lucide-react";
+import { publicAsset } from "../lib/public-asset";
 export default function ToolIcon({
   name,
   icon,
@@ -9,7 +10,7 @@ export default function ToolIcon({
   if (icon)
     return (
       <img
-        src={`/icons/${icon}.svg`}
+        src={publicAsset(`/icons/${icon}.svg`)}
         width="32"
         height="32"
         alt=""

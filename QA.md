@@ -1,6 +1,6 @@
 # ผลตรวจ Portfolio เวอร์ชันแรก
 
-ตรวจวันที่ 12 กันยายน 2026 บนเครื่อง Windows โดยยังไม่ได้เผยแพร่เว็บไซต์
+ตรวจวันที่ 12 กันยายน 2026 บนเครื่อง Windows รวมการจำลอง production build สำหรับ GitHub Pages
 
 ## สถานะงาน
 
@@ -21,6 +21,8 @@
 
 - `npm run build` ผ่าน TypeScript และ Vite production build
 - หลังตรวจข้อผิดพลาดใน VS Code เพิ่ม `vite/client` types สำหรับ CSS import และ tsconfig แยกของไฟล์ QA; ตรวจ `tsc --noEmit -p tsconfig.json` และ `tsc --noEmit -p tmp/qa/tsconfig.json` ผ่านทั้งคู่
+- `npm run build:github` ผ่าน และสร้าง `dist/index.html` กับ `dist/404.html` ที่มีเนื้อหาเดียวกันสำหรับ SPA fallback
+- ตรวจ preview ใต้ `/Portfolio.github.io/`: หน้า `/`, `/index.html`, `/projects`, JavaScript, CSS, avatar และ Resume PDF ตอบสถานะ 200
 - `npm test` ผ่าน 13 การทดสอบใน `src/test/portfolio.test.tsx`
 - ทดสอบคีย์คำแปล, Filter หลายหมวด, Project Card เมื่อข้อมูลไม่ครบ, การแสดงผลงานใหม่บน Home, การจำภาษา/ธีม, Storage ถูกปิด, Tools Filter, Resume fallback และ Gallery
 - Gallery ทดสอบเปิด/ปิด สลับภาพ วนกลับภาพแรก และคืน Focus ใน jsdom ซึ่งจำลอง native dialog; ยังไม่มีภาพกิจกรรมจริงให้ตรวจการจัดวาง

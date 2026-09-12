@@ -3,6 +3,7 @@ import { usePreferences } from "../context";
 import { aboutContent, currentFocus } from "../data/about";
 import { education } from "../data/education";
 import { ConnectBand, PageHeading } from "../components/UI";
+import { publicAsset } from "../lib/public-asset";
 export default function About() {
   const { t, locale } = usePreferences();
   return (
@@ -18,7 +19,7 @@ export default function About() {
         <aside className="about-sidebar">
           <div className="identity-card">
             <img
-              src="/images/profile.png"
+              src={publicAsset("/images/profile.png")}
               width="230"
               height="225"
               alt={t.name}

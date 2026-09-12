@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
 import { usePreferences } from "../context";
+import { publicAsset } from "../lib/public-asset";
 export default function Rainforest() {
   const { theme } = usePreferences();
   const ref = useRef<HTMLDivElement>(null);
@@ -70,8 +71,8 @@ export default function Rainforest() {
             <img
               className={`forest-photo forest-${kind}`}
               key={kind}
-              src={`/images/${kind}.webp`}
-              srcSet={`/images/${kind}-mobile.webp 840w, /images/${kind}.webp 1672w`}
+              src={publicAsset(`/images/${kind}.webp`)}
+              srcSet={`${publicAsset(`/images/${kind}-mobile.webp`)} 840w, ${publicAsset(`/images/${kind}.webp`)} 1672w`}
               sizes="100vw"
               fetchPriority={
                 (theme === "dark" ? "night" : "morning") === kind
@@ -106,8 +107,8 @@ export default function Rainforest() {
       <div className="forest-foreground">
         <img
           className="forest-leaves"
-          src="/images/leaves.webp"
-          srcSet="/images/leaves-mobile.webp 840w, /images/leaves.webp 1672w"
+          src={publicAsset("/images/leaves.webp")}
+          srcSet={`${publicAsset("/images/leaves-mobile.webp")} 840w, ${publicAsset("/images/leaves.webp")} 1672w`}
           sizes="100vw"
           width="1672"
           height="941"

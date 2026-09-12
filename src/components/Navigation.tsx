@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import { usePreferences } from "../context";
+import { publicAsset } from "../lib/public-asset";
 const paths = [
   "home",
   "about",
@@ -60,7 +61,7 @@ export default function Navigation() {
       </a>
       <div className="nav-inner">
         <Link className="brand" to="/" aria-label={t.name}>
-          <img src="/images/avatar.webp" width="38" height="38" alt="" />
+          <img src={publicAsset("/images/avatar.webp")} width="38" height="38" alt="" />
           <span>
             {t.name}
             <small>DEVELOPER PORTFOLIO</small>

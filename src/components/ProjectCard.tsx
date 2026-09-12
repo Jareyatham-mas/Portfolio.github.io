@@ -4,6 +4,7 @@ import { usePreferences } from "../context";
 import type { Project } from "../data/projects";
 import { useRef } from 'react';
 import type { PointerEvent } from 'react';
+import { publicAsset } from "../lib/public-asset";
 export default function ProjectCard({
   project,
   index,
@@ -23,7 +24,7 @@ export default function ProjectCard({
       <div className="project-cover" ref={cover} onPointerMove={tilt} onPointerLeave={()=>{if(cover.current)cover.current.style.transform='';}}>
         {project.cover ? (
           <img
-            src={project.cover.src}
+            src={publicAsset(project.cover.src)}
             alt={project.cover.alt[locale]}
             width="900"
             height="640"

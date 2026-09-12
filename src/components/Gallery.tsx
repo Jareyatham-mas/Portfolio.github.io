@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { usePreferences } from "../context";
 import type { GalleryImage } from "../data/experience";
+import { publicAsset } from "../lib/public-asset";
 export default function Gallery({
   images,
   title,
@@ -46,7 +47,7 @@ export default function Gallery({
             aria-label={`${t.ui.gallery}: ${im.alt[locale]}`}
           >
             <img
-              src={im.src}
+              src={publicAsset(im.src)}
               alt={im.alt[locale]}
               loading="lazy"
               width="600"
@@ -88,7 +89,7 @@ export default function Gallery({
         {active !== null && (
           <>
             <figure>
-              <img src={images[active].src} alt={images[active].alt[locale]} />
+              <img src={publicAsset(images[active].src)} alt={images[active].alt[locale]} />
               <figcaption aria-live="polite">
                 {images[active].caption?.[locale] ?? images[active].alt[locale]}
                 <span className="mono">

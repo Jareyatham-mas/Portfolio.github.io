@@ -10,6 +10,7 @@ import {
 import { usePreferences } from "../context";
 import { socials } from "../data/socials";
 import { PageHeading } from "../components/UI";
+import { publicAsset } from "../lib/public-asset";
 const icons = {
   github: Github,
   email: Mail,
@@ -26,7 +27,7 @@ export default function Contact() {
       <div className="contact-layout">
         <div className="contact-art" data-reveal>
           <img
-            src={`/images/${theme === "dark" ? "night" : "morning"}-mobile.webp`}
+            src={publicAsset(`/images/${theme === "dark" ? "night" : "morning"}-mobile.webp`)}
             alt=""
             width="840"
             height="473"

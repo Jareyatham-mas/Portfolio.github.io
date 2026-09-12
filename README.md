@@ -37,7 +37,7 @@ npm run preview  # ดู production build ที่ http://127.0.0.1:4173
 npm test        # ทดสอบพฤติกรรมของ Component และข้อมูล
 ```
 
-โปรเจกต์นี้ยังไม่ได้เผยแพร่ และไม่ได้เชื่อมฐานข้อมูลหรือบริการเก็บข้อความ
+โปรเจกต์นี้ตั้งค่าให้ GitHub Actions เผยแพร่ไปยัง GitHub Pages แล้ว และไม่ได้เชื่อมฐานข้อมูลหรือบริการเก็บข้อความ
 
 ## หน้าและระบบที่มี
 
@@ -116,11 +116,13 @@ English Resume ปัจจุบันคัดลอกตรงจาก `C:/
 
 ใช้ GSAP กับเอฟเฟกต์ตาม Scroll และ Motion กับ Transition ของหน้าคนละ Element โหลดชุด Scroll Motion แยกจากหน้าแรกและเก็บกวาด ScrollTrigger/Lenis เมื่อเปลี่ยนหน้า
 
-## การส่งขึ้นโฮสต์ภายหลัง
+## GitHub Pages
 
-Build เป็น static SPA ใน `dist/` โฮสต์ต้อง rewrite เส้นทางที่ไม่ใช่ไฟล์จริงกลับไป `index.html` เพื่อเปิด `/about` หรือ `/resume` โดยตรงได้ โค้ดและ asset URLs ปัจจุบันออกแบบให้เว็บไซต์อยู่ที่ root domain; หากใช้ GitHub Pages ใต้ subpath ต้องปรับ base path, Router และ asset URLs ก่อน
+Workflow `.github/workflows/deploy.yml` จะทำงานเมื่อ push เข้า `main`, ติดตั้ง dependencies, รัน `npm run build:github` และเผยแพร่เฉพาะโฟลเดอร์ `dist/`
 
-ไม่มีการ Deploy, push Git หรือแก้เว็บไซต์เดิมของคุณในงานนี้
+คำสั่ง `build:github` ตั้ง base path เป็น `/Portfolio.github.io/` ส่วน `publicAsset()` เติม base path ให้รูป ไอคอน และ Resume โดยอัตโนมัติ ไฟล์ `dist/404.html` เป็น SPA fallback สำหรับการเปิด `/about`, `/projects` หรือหน้าอื่นโดยตรง และเส้นทาง `/index.html` จะเปลี่ยนกลับไปหน้า Home
+
+ใน GitHub ให้ตั้ง `Settings → Pages → Source` เป็น `GitHub Actions` เว็บไซต์จะอยู่ที่ `https://jareyatham-mas.github.io/Portfolio.github.io/` และลิงก์เดิมที่ลงท้าย `/index.html` ยังใช้งานได้
 
 ## ผลตรวจ
 
