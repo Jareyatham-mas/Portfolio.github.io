@@ -1,4 +1,12 @@
-# Rainforest assets
+# Portfolio assets
+
+## Current design — 17 September 2026
+
+The text-led portfolio uses the inline line-art SVG in `src/components/BotanicalAccent.tsx`. It is a static, decorative, pointer-transparent ornament used at the edge of Home and Contact. The Home ornament is hidden on mobile. No forest photos, fog, particles, or environmental parallax are loaded by the current components or stylesheet.
+
+The profile, avatar, resume PDF, and resume preview below remain unchanged. The old landscape files are retained for reference and are copied as unused static files by Vite; the site does not request them.
+
+## Archived rainforest artwork
 
 Generated with the built-in Imagegen tool, one request per asset, no retries. Original size: 1672 × 941. WebP compression preserves composition; the foreground retains alpha transparency. These are decorative environments, not photographs of a claimed location or event.
 

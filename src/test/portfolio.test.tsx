@@ -13,7 +13,6 @@ import Resume from "../pages/Resume";
 import Tools from "../pages/Tools";
 import Home from "../pages/Home";
 import { defaultResume, resumes } from "../data/resume";
-vi.mock('../components/Rainforest', () => ({ default: () => null }));
 const wrap = (ui: ReactNode) =>
   render(
     <MemoryRouter>

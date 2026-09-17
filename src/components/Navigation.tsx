@@ -54,7 +54,7 @@ export default function Navigation() {
   };
   return (
     <header
-      className={`navigation ${scrolled ? "scrolled" : ""} ${pathname === "/" ? "on-hero" : ""}`}
+      className={`navigation ${scrolled ? "scrolled" : ""}`}
     >
       <a className="skip-link" href="#main">
         {t.ui.skip}
@@ -147,7 +147,7 @@ export default function Navigation() {
             </NavLink>
           ))}
         </nav>
-        <p className="mobile-menu-footer">Nature × Technology</p>
+        <p className="mobile-menu-footer">{t.home.role}</p>
       </dialog>
     </header>
   );

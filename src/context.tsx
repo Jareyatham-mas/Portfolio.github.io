@@ -33,7 +33,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     document.documentElement.dataset.theme = theme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", theme === "dark" ? "#132c25" : "#f5f7ef");
+      ?.setAttribute("content", theme === "dark" ? "#171c1a" : "#f7f8f5");
     try {
       localStorage.setItem("rainforest-theme", theme);
     } catch {

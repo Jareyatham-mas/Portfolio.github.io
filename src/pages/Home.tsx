@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePreferences } from "../context";
-import Rainforest from '../components/Rainforest';
+import BotanicalAccent from '../components/BotanicalAccent';
 import ToolIcon from '../components/ToolIcon';
 import { tools } from '../data/tools';
 import { projects } from '../data/projects';
@@ -30,20 +30,15 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <Rainforest />
-        <div className="hero-shade" aria-hidden="true" />
-        <div className="hero-grain" aria-hidden="true" />
+        <BotanicalAccent className="hero-botanical" />
         <div className="hero-content container">
           <span className="hero-eyebrow">
             <span className="tiny-line" />
             {t.home.eyebrow}
           </span>
-          <h1>
-            <span>{t.home.headline1}</span>
-            <span className="hero-accent">{t.home.headline2}</span>
-          </h1>
+          <h1>{t.name}</h1>
+          <p className="hero-role">{t.home.role}</p>
           <div className="hero-bio">
-            <p className="hero-intro">{t.home.intro}</p>
             <p className="hero-description">{t.home.description}</p>
           </div>
           <div className="hero-actions">
@@ -52,16 +47,17 @@ export default function Home() {
               <ArrowUpRight size={18} />
             </Link>
             {resumeFile ? <a
-              className="button button-ghost"
+              className="button button-outline"
               href={resumeFile.path}
               download
             >
               <Download size={17} />
               {t.ui.download}
               <small>{resumeLocale.toUpperCase()}</small>
-            </a> : <Link className="button button-ghost" to="/resume">
+            </a> : <Link className="button button-outline" to="/resume">
               {t.nav.resume}<ArrowUpRight size={17} />
             </Link>}
+            <TextLink to="/contact">{t.nav.contact}</TextLink>
           </div>
         </div>
         <div className="hero-bottom container">
@@ -71,12 +67,7 @@ export default function Home() {
             </span>
             {t.home.explore}
           </a>
-          <span className="hero-coordinate mono">
-            NATURE × TECHNOLOGY <span>01 — 07</span>
-          </span>
-        </div>
-        <div className="hero-side-label mono" aria-hidden="true">
-          A DIGITAL RAINFOREST / J.M.
+          <span className="hero-note">{t.home.education}</span>
         </div>
       </section>
       <div className="interest-strip">

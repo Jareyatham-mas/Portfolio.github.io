@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Github, Sprout } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Github, Code2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 import { usePreferences } from "../context";
@@ -69,7 +69,7 @@ export function EmptyProjects({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`projects-empty ${compact ? "compact" : ""}`} data-reveal>
       <div className="empty-symbol">
-        <Sprout size={40} strokeWidth={1.2} />
+        <Code2 size={40} strokeWidth={1.2} />
       </div>
       <div className="empty-copy">
         <span className="eyebrow">{t.ui.workInProgress}</span>
@@ -140,7 +140,7 @@ export function Footer() {
 export function RoutePending() {
   return (
     <div className="route-loading" role="status">
-      <Sprout aria-hidden="true" />
+      <Code2 aria-hidden="true" />
       <span>…</span>
     </div>
   );

@@ -10,7 +10,7 @@ import {
 import { usePreferences } from "../context";
 import { socials } from "../data/socials";
 import { PageHeading } from "../components/UI";
-import { publicAsset } from "../lib/public-asset";
+import BotanicalAccent from "../components/BotanicalAccent";
 const icons = {
   github: Github,
   email: Mail,
@@ -20,22 +20,17 @@ const icons = {
   line: MessageCircle,
 };
 export default function Contact() {
-  const { t, theme } = usePreferences();
+  const { t } = usePreferences();
   return (
     <div className="container interior-page contact-page">
       <PageHeading {...t.contact} />
       <div className="contact-layout">
-        <div className="contact-art" data-reveal>
-          <img
-            src={publicAsset(`/images/${theme === "dark" ? "night" : "morning"}-mobile.webp`)}
-            alt=""
-            width="840"
-            height="473"
-            loading="lazy"
-          />
-          <div>
-            <span className="eyebrow">NATURE × TECHNOLOGY</span>
-            <p>{t.contact.invitation}</p>
+        <div className="contact-intro" data-reveal>
+          <BotanicalAccent className="contact-botanical" />
+          <div className="contact-intro-copy">
+            <span className="eyebrow">{t.contact.collaboration}</span>
+            <h2>{t.contact.invitation}</h2>
+            <p>{t.contact.discussion}</p>
           </div>
         </div>
         <div className="contact-list">

@@ -1,6 +1,6 @@
-# Jareyatham Masong — Rainforest Portfolio
+# Jareyatham Masong — Developer Portfolio
 
-Portfolio สองภาษาในบรรยากาศป่าฝน สร้างด้วย React + Vite + TypeScript + Tailwind CSS พร้อม GSAP/ScrollTrigger, Lenis และ Motion
+Portfolio สองภาษาสำหรับนำเสนอทักษะด้าน Software Development & Testing ใช้ข้อความเป็นหลัก พื้นเรียบ และสีเขียวพร้อมลายใบไม้ขนาดเล็ก สร้างด้วย React + Vite + TypeScript + Tailwind CSS พร้อม GSAP/ScrollTrigger, Lenis และ Motion
 
 ## เปิดเว็บไซต์บนเครื่อง
 
@@ -44,9 +44,11 @@ npm test        # ทดสอบพฤติกรรมของ Component แ
 - Home, About, Projects, Experience, Tools, Contact, Resume และหน้า 404
 - ภาษาไทยเริ่มต้น พร้อม EN; เก็บข้อความแยกใน `src/translations/` มี TypeScript ตรวจคีย์ตรงกัน
 - Theme เริ่มต้นตามระบบ เก็บตัวเลือกภาษาและธีมใน Local Storage; เมื่อปิด Storage ยังใช้งานได้ในหน้าปัจจุบัน
-- Hero ใช้ภาพเช้า/กลางคืนแบบ crossfade, หมอก, ละออง, ใบไม้ และ Parallax
+- Hero เน้นชื่อ สายงาน และปุ่มดูผลงาน/ดาวน์โหลด Resume/ติดต่อ ไม่มีภาพป่าและรูปโปรไฟล์ขนาดใหญ่
+- Light ใช้พื้น off-white และการ์ดขาว; Dark ใช้ charcoal อมเขียว พร้อม Navigation พื้นเรียบทุกหน้า
+- SVG ใบไม้ใน `src/components/BotanicalAccent.tsx` ใช้เฉพาะขอบ Hero และ Contact ไม่รับ pointer และไม่มี animation ต่อเนื่อง; ซ่อนใบไม้ Hero บนมือถือเพื่อให้พื้นที่กับข้อความ
 - Desktop ที่ใช้เมาส์มี Lenis; Tablet/Mobile ใช้ Native Scroll พร้อมลดเอฟเฟกต์
-- `prefers-reduced-motion` ปิด Parallax, continuous motion และ transition
+- คง Scroll Reveal และ Page Transition แบบสั้น; `prefers-reduced-motion` ปิด Scroll Motion, cursor tilt, smooth scrolling และ transition
 - เมนูมือถือและ Gallery ใช้ native `<dialog>` รองรับ Escape และคืน Focus
 - Resume ลด Motion และมีภาพ preview ของ PDF ต้นฉบับ พร้อมเปิด/ดาวน์โหลดไฟล์
 
@@ -110,7 +112,7 @@ English Resume ปัจจุบันคัดลอกตรงจาก `C:/
 
 ## งานภาพและประสิทธิภาพ
 
-ภาพตกแต่งสร้างด้วย built-in Imagegen และบีบอัดเป็น WebP สองขนาด เก็บทั้งหมดใน `public/images/` ไม่มีการสร้างภาพบุคคลหรือกิจกรรมขึ้นแทนเหตุการณ์จริง ดูคำสั่งสร้างภาพใน `ASSETS.md`
+ดีไซน์ปัจจุบันใช้ SVG เส้นใบไม้ที่เขียนใน Component และไม่มีการเรียกภาพป่าขณะเปิดเว็บ ภาพป่าจากดีไซน์เดิมยังเก็บไว้ใน `public/images/` เป็นไฟล์อ้างอิงที่ไม่ได้ใช้; ที่มาอยู่ใน `ASSETS.md` รูปบุคคลและ Preview Resume ยังคงมาจากเอกสารต้นฉบับ
 
 ฟอนต์ Manrope และ Noto Sans Thai จัดเก็บผ่านแพ็กเกจในโปรเจกต์ ไม่เรียก Google Fonts ขณะใช้งาน โลโก้เทคโนโลยีมาจาก Simple Icons และไอคอน UI จาก Lucide; เครื่องมือที่เป็นแนวคิด เช่น REST API ใช้ไอคอนเชิงหน้าที่
 
@@ -121,6 +123,8 @@ English Resume ปัจจุบันคัดลอกตรงจาก `C:/
 Workflow `.github/workflows/deploy.yml` จะทำงานเมื่อ push เข้า `main`, ติดตั้ง dependencies, รัน `npm run build:github` และเผยแพร่เฉพาะโฟลเดอร์ `dist/`
 
 คำสั่ง `build:github` ตั้ง base path เป็น `/Portfolio.github.io/` ส่วน `publicAsset()` เติม base path ให้รูป ไอคอน และ Resume โดยอัตโนมัติ ไฟล์ `dist/404.html` เป็น SPA fallback สำหรับการเปิด `/about`, `/projects` หรือหน้าอื่นโดยตรง และเส้นทาง `/index.html` จะเปลี่ยนกลับไปหน้า Home
+
+เมื่อตรวจ build นี้ในเครื่อง ให้รัน `npm run preview -- --base=/Portfolio.github.io/` แล้วเปิด `http://127.0.0.1:4173/Portfolio.github.io/` เพื่อให้ preview ใช้ base path ตรงกับไฟล์ที่ build ไว้ (สำหรับ `npm run build` ปกติ ให้ใช้ `npm run preview` ตามเดิม)
 
 ใน GitHub ให้ตั้ง `Settings → Pages → Source` เป็น `GitHub Actions` เว็บไซต์จะอยู่ที่ `https://jareyatham-mas.github.io/Portfolio.github.io/` และลิงก์เดิมที่ลงท้าย `/index.html` ยังใช้งานได้
 

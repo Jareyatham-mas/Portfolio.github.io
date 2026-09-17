@@ -25,8 +25,8 @@ export default function About() {
               alt={t.name}
             />
             <h2>{t.name}</h2>
-            <p>Computer Science Student</p>
-            <span className="eyebrow">SRIPATUM UNIVERSITY</span>
+            <p>{t.home.eyebrow}</p>
+            <span className="eyebrow">{t.home.education}</span>
           </div>
           <nav aria-label={t.nav.about}>
             {(["who", "goals", "focus", "education", "beyond"] as const).map(

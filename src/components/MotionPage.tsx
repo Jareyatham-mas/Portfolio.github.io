@@ -19,7 +19,7 @@ export default function MotionPage({ children }: { children: ReactNode }) {
     const timer = window.setTimeout(() => {
       void import("../lib/scroll-motion")
         .then(({ mountScrollMotion }) => {
-          if (!disposed) cleanup = mountScrollMotion(root, pathname);
+          if (!disposed) cleanup = mountScrollMotion(root);
         })
         .catch(() => {
           /* Content stays visible when optional motion cannot load. */

@@ -2,15 +2,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 gsap.registerPlugin(ScrollTrigger);
-export function mountScrollMotion(root: HTMLElement, pathname: string) {
+export function mountScrollMotion(root: HTMLElement) {
   const media = gsap.matchMedia(root);
   media.add("(prefers-reduced-motion: no-preference)", () => {
     gsap.utils.toArray<HTMLElement>("[data-reveal]", root).forEach((el) => {
       if (el.getBoundingClientRect().top < window.innerHeight * 0.85) return;
       gsap.from(el, {
         autoAlpha: 0,
-        y: 24,
-        duration: 0.7,
+        y: 16,
+        duration: 0.45,
         ease: "power2.out",
         scrollTrigger: { trigger: el, start: "top 94%", once: true },
         onComplete: () =>
@@ -39,31 +39,6 @@ export function mountScrollMotion(root: HTMLElement, pathname: string) {
         attributes: true,
         attributeFilter: ["style"],
       });
-      if (pathname === "/") {
-        const hero = root.querySelector(".hero");
-        if (hero) {
-          gsap.to(".forest-depth", {
-            y: 100,
-            ease: "none",
-            scrollTrigger: {
-              trigger: hero,
-              start: "top top",
-              end: "bottom top",
-              scrub: 0.8,
-            },
-          });
-          gsap.to(".forest-foreground", {
-            y: 180,
-            ease: "none",
-            scrollTrigger: {
-              trigger: hero,
-              start: "top top",
-              end: "bottom top",
-              scrub: 0.6,
-            },
-          });
-        }
-      }
       return () => {
         overflowObserver.disconnect();
         gsap.ticker.remove(tick);
