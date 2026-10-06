@@ -92,6 +92,7 @@ export const en: Dictionary = {
     lead: "Experiences that shape how I think, solve problems, and work with people.",
     gallery: "Activity gallery",
     organizations: "Organizations & roles",
+    verifySelection: "View selected ambassadors",
   },
   tools: {
     eyebrow: "MY TOOLKIT",

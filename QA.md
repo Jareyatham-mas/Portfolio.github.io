@@ -1,5 +1,12 @@
 # ผลตรวจ Portfolio
 
+## เพิ่ม Google Student Ambassador — 6 ตุลาคม 2026
+
+- ตรวจชื่อจริยธรรม มาสงค์ใน[รายชื่อ Google Student Ambassador รุ่นที่ 2](https://googlestudentambassador.info/th/listGSA) ก่อนเพิ่มข้อมูล
+- เพิ่มรายการหลังงานผู้ช่วยสอนในหน้า Experience ทั้งภาษาไทยและอังกฤษ โดยระบุเพียงสถานะได้รับคัดเลือกและเดือนกันยายน 2026 พร้อมลิงก์รายชื่อ ไม่เผยแพร่ภาพอีเมลหรือรหัส GSA ID
+- หน้าแรกยังแสดงงานผู้ช่วยสอนเป็น Experience Preview; ไม่เปลี่ยน PDF Resume ที่ผู้ใช้ส่งมา
+- `npm test` ผ่าน 14/14 และ `npm run build:github` ผ่าน ตรวจหน้า Experience ใน local production preview ทั้ง TH/EN: ข้อความและลิงก์แสดงถูกต้อง ไม่มี horizontal overflow ที่ความกว้าง Desktop
+
 ## อัปเดต Resume สองภาษา — 6 ตุลาคม 2026
 
 - `Resume (1).pdf` เป็นภาษาอังกฤษ และ `Resume (2).pdf` เป็นภาษาไทย ตรวจแล้วเป็น PDF หน้าเดียวขนาด A4 ทั้งคู่; คัดลอกไฟล์โดยไม่แก้เนื้อหาและเรนเดอร์ภาพ Preview จาก PDF แต่ละฉบับ

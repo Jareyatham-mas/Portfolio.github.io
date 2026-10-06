@@ -1522,6 +1522,9 @@ html[lang="th"] .hero h1 {
   left: 0;
   top: 12px;
 }
+.experience-verification {
+  margin-top: 18px;
+}
 .activity-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

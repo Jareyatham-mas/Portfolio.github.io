@@ -12,6 +12,7 @@ import Gallery from "../components/Gallery";
 import Resume from "../pages/Resume";
 import Tools from "../pages/Tools";
 import Home from "../pages/Home";
+import Experience from "../pages/Experience";
 import { defaultResume, resumes } from "../data/resume";
 const wrap = (ui: ReactNode) =>
   render(
@@ -181,6 +182,25 @@ describe("resume availability", () => {
       "src",
       "/resume/preview-en.webp",
     );
+  });
+});
+describe("experience", () => {
+  it("shows the selected ambassador role with a public verification link", () => {
+    const { container } = wrap(<Experience />);
+    const entry = [...container.querySelectorAll(".experience-entry")].find((item) =>
+      item.textContent?.includes("Google Student Ambassador Thailand 2026"),
+    );
+    expect(entry).toBeTruthy();
+    expect(entry).toHaveTextContent("ได้รับคัดเลือกเป็น Student Ambassador");
+    const link = within(entry as HTMLElement).getByRole("link", {
+      name: /ตรวจสอบรายชื่อผู้ได้รับคัดเลือก/,
+    });
+    expect(link).toHaveAttribute(
+      "href",
+      "https://googlestudentambassador.info/th/listGSA",
+    );
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
 });
 describe("experience gallery", () => {

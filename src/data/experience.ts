@@ -7,6 +7,7 @@ export type Experience = {
   organizations: { name: Localized; role: Localized; period?: Localized }[];
   details: Localized[];
   images: GalleryImage[];
+  verificationUrl?: string;
 };
 export const experiences: Experience[] = [
   {
@@ -56,6 +57,38 @@ export const experiences: Experience[] = [
       },
     ],
     images: [],
+  },
+  {
+    id: "google-student-ambassador-2026",
+    category: {
+      th: "บทบาทนักศึกษาและชุมชน",
+      en: "Student Leadership & Community",
+    },
+    title: {
+      th: "Google Student Ambassador Thailand 2026 · รุ่นที่ 2",
+      en: "Google Student Ambassador Thailand 2026 · Cohort 2",
+    },
+    organizations: [
+      {
+        name: {
+          th: "Google Student Ambassador Thailand",
+          en: "Google Student Ambassador Thailand",
+        },
+        role: {
+          th: "ได้รับคัดเลือกเป็น Student Ambassador",
+          en: "Selected Student Ambassador",
+        },
+        period: { th: "กันยายน 2026", en: "September 2026" },
+      },
+    ],
+    details: [
+      {
+        th: "ได้รับคัดเลือกเข้าร่วมโครงการรุ่นที่ 2 ซึ่งมุ่งเน้นการเรียนรู้และแบ่งปันการใช้งาน Google AI ในชุมชนนักศึกษา",
+        en: "Selected for the second cohort, a program focused on learning and sharing Google AI tools with the student community.",
+      },
+    ],
+    images: [],
+    verificationUrl: "https://googlestudentambassador.info/th/listGSA",
   },
   {
     id: "company-visit",

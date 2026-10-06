@@ -1,14 +1,23 @@
 import {
   Building2,
+  ExternalLink,
   GraduationCap,
   HeartHandshake,
+  UsersRound,
   Workflow,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { usePreferences } from "../context";
 import { experiences } from "../data/experience";
 import { ConnectBand, PageHeading } from "../components/UI";
 import Gallery from "../components/Gallery";
-const icons = [GraduationCap, Workflow, Building2, HeartHandshake];
+const icons: Record<string, LucideIcon> = {
+  teaching: GraduationCap,
+  "google-student-ambassador-2026": UsersRound,
+  "company-visit": Workflow,
+  administrative: Building2,
+  retail: HeartHandshake,
+};
 export default function Experience() {
   const { t, locale } = usePreferences();
   return (
@@ -16,7 +25,7 @@ export default function Experience() {
       <PageHeading {...t.experience} />
       <div className="experience-timeline">
         {experiences.map((e, i) => {
-          const Icon = icons[i];
+          const Icon = icons[e.id] ?? Building2;
           return (
             <article key={e.id} className="experience-entry" data-reveal>
               <div className="timeline-marker">
@@ -44,6 +53,18 @@ export default function Experience() {
                     <li key={j}>{d[locale]}</li>
                   ))}
                 </ul>
+                {e.verificationUrl && (
+                  <a
+                    className="text-link experience-verification"
+                    href={e.verificationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.experience.verifySelection}
+                    <ExternalLink size={16} aria-hidden="true" />
+                    <span className="sr-only">{t.ui.external}</span>
+                  </a>
+                )}
                 <Gallery images={e.images} title={e.title[locale]} />
               </div>
             </article>
