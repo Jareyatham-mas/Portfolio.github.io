@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Download, ExternalLink, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePreferences } from "../context";
@@ -8,6 +8,7 @@ import { PageHeading } from "../components/UI";
 export default function Resume() {
   const { t, locale } = usePreferences();
   const [selected, setSelected] = useState<Locale>(() => defaultResume(locale));
+  useEffect(() => setSelected(defaultResume(locale)), [locale]);
   const file = resumes[selected];
   return (
     <div className="container interior-page resume-page">
@@ -50,16 +51,16 @@ export default function Resume() {
           <div className="resume-document-info">
             <span>
               <FileText size={16} />
-              {selected === "en" ? t.resume.documentNote : t.resume.thai}
+              {selected === "en" ? t.resume.documentNote : t.resume.documentNoteTh}
             </span>
             <span className="mono">PDF</span>
           </div>
           <figure className="resume-preview">
             <img
               src={file.preview}
-              alt={selected === "en" ? t.resume.previewAlt : t.resume.thai}
-              width="1072"
-              height="1517"
+              alt={selected === "en" ? t.resume.previewAlt : t.resume.previewAltTh}
+              width="1132"
+              height="1600"
             />
             <figcaption>{t.resume.fallback}</figcaption>
           </figure>

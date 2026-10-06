@@ -2,7 +2,11 @@ import type { Locale } from "../context";
 import { publicAsset } from "../lib/public-asset";
 export type ResumeFile = { path: string; preview: string; pages: number };
 export const resumes: Record<Locale, ResumeFile | null> = {
-  th: null,
+  th: {
+    path: publicAsset("/resume/jareyatham-masong-th.pdf"),
+    preview: publicAsset("/resume/preview-th.webp"),
+    pages: 1,
+  },
   en: {
     path: publicAsset("/resume/jareyatham-masong-en.pdf"),
     preview: publicAsset("/resume/preview-en.webp"),

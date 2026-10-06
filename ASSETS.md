@@ -4,7 +4,7 @@
 
 The text-led portfolio uses the inline line-art SVG in `src/components/BotanicalAccent.tsx`. It is a static, decorative, pointer-transparent ornament used at the edge of Home and Contact. The Home ornament is hidden on mobile. No forest photos, fog, particles, or environmental parallax are loaded by the current components or stylesheet.
 
-The profile, avatar, resume PDF, and resume preview below remain unchanged. The old landscape files are retained for reference and are copied as unused static files by Vite; the site does not request them.
+The profile and avatar remain unchanged. Both resume PDFs were supplied by the site owner and their previews are rendered from those PDFs. The old landscape files are retained for reference and are copied as unused static files by Vite; the site does not request them.
 
 ## Archived rainforest artwork
 
@@ -15,8 +15,9 @@ Generated with the built-in Imagegen tool, one request per asset, no retries. Or
 - Foreground: `public/images/leaves.webp` and `leaves-mobile.webp`
 - Real profile image: `public/images/profile.png`, extracted unchanged from the supplied Resume PDF.
 - Navigation avatar: `public/images/avatar.webp`, an 80 × 80 optimized copy of the supplied profile image.
-- Original PDF: `public/resume/jareyatham-masong-en.pdf`
-- Rendered PDF preview: `public/resume/preview-en.webp`
+- English PDF: `public/resume/jareyatham-masong-en.pdf` (source: `Resume (1).pdf`)
+- Thai PDF: `public/resume/jareyatham-masong-th.pdf` (source: `Resume (2).pdf`)
+- Rendered PDF previews: `public/resume/preview-en.webp` and `preview-th.webp`
 
 ## Exact generation prompts
 

@@ -1,5 +1,13 @@
 # ผลตรวจ Portfolio
 
+## อัปเดต Resume สองภาษา — 6 ตุลาคม 2026
+
+- `Resume (1).pdf` เป็นภาษาอังกฤษ และ `Resume (2).pdf` เป็นภาษาไทย ตรวจแล้วเป็น PDF หน้าเดียวขนาด A4 ทั้งคู่; คัดลอกไฟล์โดยไม่แก้เนื้อหาและเรนเดอร์ภาพ Preview จาก PDF แต่ละฉบับ
+- SHA-256 ของไฟล์บนเว็บตรงกับไฟล์ที่ได้รับ: EN `F70A4292A77467F78EE137255711BD2C075D0B43785C3BC104F8B2D1F7D3D62C`; TH `F66B2DF33F6EE1D79633170625D7FB4DABB7E4DF438EDA9BE48AF8F35586B0F6`
+- `npm test` ผ่าน 13/13; `npm run build` และ `npm run build:github` ผ่าน; `git diff --check` ไม่พบ whitespace error
+- ตรวจหน้า Resume จาก GitHub Pages build ใน local preview: ค่าเริ่มต้นเป็น PDF ไทยเมื่อเว็บภาษาไทย, เลือกไฟล์อังกฤษได้, สลับภาษาเว็บแล้วกลับไปเลือกไฟล์ตรงภาษา, ภาพ Preview โหลดครบและไม่มี horizontal overflow
+- PDF และภาพ Preview ทั้งสี่ไฟล์ตอบ HTTP 200 ด้วย Content-Type ที่ถูกต้อง; ดาวน์โหลด PDF ภาษาไทยผ่านปุ่มใน Browser ได้จริง
+
 ## ตรวจความพร้อมเพื่อแทนเว็บเดิม — 17 กันยายน 2026
 
 ผู้ใช้อนุมัติให้นำดีไซน์ที่ตรวจแล้วขึ้นแทนเว็บเดิมใน repository `Jareyatham-mas/Portfolio.github.io` บน branch `main` โดยใช้ workflow GitHub Pages เดิม ตรวจ source เทียบแผนแล้วมีครบทั้ง 7 หน้า, คำแปล TH/EN, Light/Dark, responsive, filters, gallery, contact และ Resume

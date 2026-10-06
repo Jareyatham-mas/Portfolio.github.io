@@ -151,7 +151,9 @@ describe("resume availability", () => {
     }
   });
   it("selects the available document with sensible fallback", () => {
-    expect(defaultResume("th")).toBe("en");
+    expect(defaultResume("th")).toBe("th");
+    expect(defaultResume("en")).toBe("en");
+    expect(defaultResume("th", { th: null, en: resumes.en })).toBe("en");
     expect(
       defaultResume("th", {
         th: { path: "th.pdf", preview: "th.webp", pages: 1 },
@@ -160,17 +162,25 @@ describe("resume availability", () => {
     ).toBe("th");
     expect(defaultResume("en", { th: null, en: null })).toBe("th");
   });
-  it("shows the supplied English PDF and no dead link on unavailable Thai", () => {
+  it("opens the matching Thai and English PDF and preview", () => {
     const { container } = wrap(<Resume />);
+    expect(container.querySelector("a[download]")).toHaveAttribute(
+      "href",
+      "/resume/jareyatham-masong-th.pdf",
+    );
+    expect(screen.getByRole("img", { name: /เรซูเม่ภาษาไทย/ })).toHaveAttribute(
+      "src",
+      "/resume/preview-th.webp",
+    );
+    fireEvent.click(screen.getByRole("button", { name: "เรซูเม่ภาษาอังกฤษ" }));
     expect(container.querySelector("a[download]")).toHaveAttribute(
       "href",
       "/resume/jareyatham-masong-en.pdf",
     );
-    fireEvent.click(screen.getByRole("button", { name: /เรซูเม่ภาษาไทย/ }));
-    expect(screen.getByRole("status")).toHaveTextContent("กำลังเตรียมเรซูเม่");
-    expect(container.querySelector("a[download]")).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: "เรซูเม่ภาษาอังกฤษ" }));
-    expect(container.querySelector("a[download]")).not.toBeNull();
+    expect(screen.getByRole("img", { name: /เรซูเม่ภาษาอังกฤษ/ })).toHaveAttribute(
+      "src",
+      "/resume/preview-en.webp",
+    );
   });
 });
 describe("experience gallery", () => {

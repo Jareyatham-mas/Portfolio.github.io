@@ -114,13 +114,15 @@ export const en: Dictionary = {
     lead: "A closer look at my education, skills, and experience for our next opportunity to work together.",
     english: "English resume",
     thai: "Thai resume",
-    documentNote: "Original English document · PDF · 1 page",
+    documentNote: "English resume · PDF · 1 page",
+    documentNoteTh: "Thai resume · PDF · 1 page",
     pendingText:
       "The document will be available here when ready. Feel free to get in touch for more information.",
     preview: "Resume preview",
     fallback:
       "If your device cannot display the document, open the PDF or download a copy.",
     previewAlt: "One-page English resume of Jareyatham Masong",
+    previewAltTh: "One-page Thai resume of Jareyatham Masong",
   },
   footer: {
     line: "Learn. Develop. Test.",
