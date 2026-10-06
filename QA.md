@@ -7,6 +7,7 @@
 - `npm test` ผ่าน 13/13; `npm run build` และ `npm run build:github` ผ่าน; `git diff --check` ไม่พบ whitespace error
 - ตรวจหน้า Resume จาก GitHub Pages build ใน local preview: ค่าเริ่มต้นเป็น PDF ไทยเมื่อเว็บภาษาไทย, เลือกไฟล์อังกฤษได้, สลับภาษาเว็บแล้วกลับไปเลือกไฟล์ตรงภาษา, ภาพ Preview โหลดครบและไม่มี horizontal overflow
 - PDF และภาพ Preview ทั้งสี่ไฟล์ตอบ HTTP 200 ด้วย Content-Type ที่ถูกต้อง; ดาวน์โหลด PDF ภาษาไทยผ่านปุ่มใน Browser ได้จริง
+- แก้ชื่อแท็บเมื่อเปิดเส้นทาง `/resume/` โดยตรงหลัง GitHub Pages เติม slash ท้าย URL; local preview แสดง `Resume — Jareyatham Masong` และเนื้อหา Resume ภาษาอังกฤษถูกต้อง
 
 ## ตรวจความพร้อมเพื่อแทนเว็บเดิม — 17 กันยายน 2026
 

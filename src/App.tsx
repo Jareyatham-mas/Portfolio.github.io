@@ -15,7 +15,8 @@ export default function App() {
   const { t } = usePreferences();
   const { pathname } = useLocation();
   useEffect(() => {
-    const key = pathname === "/" ? "home" : pathname.slice(1);
+    const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+    const key = normalizedPath === "/" ? "home" : normalizedPath.slice(1);
     document.title = `${t.nav[key as keyof typeof t.nav] || "404"} — ${t.name}`;
     document
       .querySelector('meta[name="description"]')
